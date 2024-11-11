@@ -1,0 +1,26 @@
+name = "CODIF"
+uuid = "c665332c-d47e-4eca-be35-4e358dd2b01a"
+authors = ["David MacMahon <davidm@astro.berkeley.edu>"]
+version = "0.0.0"
+
+[deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Pcap = "25147f4a-163d-46f2-b0d5-7291076f4cc2"
+StructArrays = "09ab397b-f2b6-538f-b94a-2f83cf4a842a"
+
+[extensions]
+PcapCODIFExt = "Pcap"
+
+[sources]
+Pcap = {url = "https://github.com/JuliaIO/Pcap.jl.git"}
+
+[compat]
+Pcap = "0.0.5"
+StructArrays = "0.6.18"
+
+[extras]
+Pcap = "25147f4a-163d-46f2-b0d5-7291076f4cc2"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
