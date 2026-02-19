@@ -105,8 +105,9 @@ protocol(hdr::CODIFHeader) = protocol(hdr.small_fields)
 version(hdr::CODIFHeader) = version(hdr.small_fields)
 
 function cryopaf_scaling_factors(hdr::CODIFHeader)
-    reinterpret(Float32, hdr.metadata[3:6]),
-    reinterpret(Float32, hdr.metadata[7:10])
+    # Older versions of Julia can't reinterpret Ntuple{4,UInt8}
+    reinterpret(Float32, reduce(+, Int32.(hdr.metadata[3:6]).<<(0:8:24))),
+    reinterpret(Float32, reduce(+, Int32.(hdr.metadata[7:10]).<<(0:8:24)))
 end
 
 end # module CODIF
