@@ -1,7 +1,7 @@
 name = "CODIF"
 uuid = "c665332c-d47e-4eca-be35-4e358dd2b01a"
 authors = ["David MacMahon <davidm@astro.berkeley.edu>"]
-version = "0.0.0"
+version = "0.0.1"
 
 [weakdeps]
 Pcap = "25147f4a-163d-46f2-b0d5-7291076f4cc2"
