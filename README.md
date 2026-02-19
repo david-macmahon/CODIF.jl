@@ -21,18 +21,25 @@ scale the results as appropriate.
 If you will be working with many `CODIFHeader` instances you may find these
 packages convenient:
 
-* [StructArrays](https://juliaarrays.github.io/StructArrays.jl/stable/)
-* [DataFrames](https://dataframes.juliadata.org/stable/)
+* [`StructArrays`](https://juliaarrays.github.io/StructArrays.jl/stable/)
+* [`DataFrames`](https://dataframes.juliadata.org/stable/)
 
-These packages are currently dependencies of `CODIF.jl`, but that is expected to
-change in future versions because they are not actual dependencies.
+These packages are not dependencies of `CODIF.jl`, but they work well together.
 
-Another dependency is `Pcap.jl`, which is not in the General registry.  The
-GitHub URL for this package has been given in the `[sources]` section of
-`Project.toml`, so if `CODIF` is your active environment, you can still `]add Pcap`
-or `]dev Pcap` if using a Julia version >= 1.11.  One option is to `]dev` it
-with this project activated and then for other projects that use `CODIF` you can
-`]dev Pcap` and the already cloned repo should be found.
+A weak dependency of `CODIF.jl` is [`Pcap.jl`](
+https://github.com/JuliaIO/Pcap.jl.git).  `CODIF.jl` has an extension that adds
+`CODIFHeader` constructor methods that take a `Pcap.PktRec` or `Pcap.UdpHdr`
+object.  This extension also makes `PcapOffline` readers iterable (a temporary
+hack until this functionality can be merged into `Pcap.jl`).
+
+A minor complication with using `Pcap.jl` is that it is not in the General
+registry.  The GitHub URL for this package has been given in the `[sources]`
+section of `Project.toml`, so if `CODIF` is your active environment, you can
+still `]add Pcap` or `]dev Pcap` if using a Julia version >= 1.11.  One option
+is to `]dev` it with this project activated and then for other projects that use
+`CODIF` you can `]dev Pcap` and the already cloned repo should be found (though
+that package should also have `Pcap.jl` in the `[sources]` section of its
+`Project.toml` file).
 
 # Additional functionality
 
